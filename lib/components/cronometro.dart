@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Cronometro extends StatelessWidget {
@@ -8,13 +9,12 @@ class Cronometro extends StatelessWidget {
     return Container(
       color: Colors.red,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text("Hora de Trabalhar",
-          style: TextStyle(
-            fontSize: 40,
-            color: Colors.white,
-          ),)
+              style: TextStyle(fontSize: 40, color: Colors.white)),
+          SizedBox(height: 20),
+          Text("25:00", style: TextStyle(fontSize: 120, color: Colors.white))
         ],
       ),
     );
