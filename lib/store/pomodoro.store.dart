@@ -50,36 +50,50 @@ abstract class _PomodoroStore with Store {
   }
 
   @action
-  void reiniciar() {
-    iniciado = false;
-    parar();
-  }
-
-
-  @action
   void parar() {
     iniciado = false;
     cronometro?.cancel();
   }
 
   @action
+  void reiniciar() {
+    iniciado = false;
+    parar();
+    ///Restaura os minutos e segundos
+    minutos = estaTrabalhando() ? tempoTrabalho : tempoDescanso;
+    segundos = 0;
+  }
+
+  @action
   void incrementarTempoTrabalho() {
     tempoTrabalho++;
+    if(estaTrabalhando()) {
+      reiniciar();
+    }
   }
 
   @action
   void decrementarTempoTrabalho() {
     tempoTrabalho--;
+    if(estaTrabalhando()) {
+      reiniciar();
+    }
   }
 
   @action
   void incrementarTempoDescanso() {
     tempoDescanso++;
+    if(estaDescansando()) {
+      reiniciar();
+    }
   }
 
   @action
   void decrementarTempoDescanso() {
     tempoDescanso--;
+    if(estaDescansando()) {
+      reiniciar();
+    }
   }
 
   bool estaTrabalhando() {

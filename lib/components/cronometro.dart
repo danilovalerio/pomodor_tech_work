@@ -4,13 +4,13 @@ import 'package:pomodor_tech_work/components/cronometro_botao.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
 import 'package:provider/provider.dart';
 
-final store = PomodoroStore();
-
 class Cronometro extends StatelessWidget {
-  const Cronometro({Key? key}) : super(key: key);
+  Cronometro({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final store = PomodoroStore();
+
     return Observer(builder: (_) => Container(
         color: store.estaTrabalhando() ? Colors.red : Colors.green,
         child: Column(
