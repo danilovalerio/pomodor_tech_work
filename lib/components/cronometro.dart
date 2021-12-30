@@ -25,7 +25,7 @@ class Cronometro extends StatelessWidget {
           children: [
             Text(
                 store!.estaTrabalhando()
-                    ? "Hora de Trabalhar"
+                    ? "Fazer a Atividade"
                     : "Hora de Descansar",
                 style: TextStyle(fontSize: 40, color: Colors.white)),
             SizedBox(height: 20),
