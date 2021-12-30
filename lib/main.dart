@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       create: (_) => PomodoroStore(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Pomodoro Tech Work',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
