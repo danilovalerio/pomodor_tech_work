@@ -3,13 +3,17 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pomodor_tech_work/components/cronometro.dart';
 import 'package:pomodor_tech_work/components/entrada_tempo.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
+import 'package:provider/provider.dart';
 
 class Pomodoro extends StatelessWidget {
+
   const Pomodoro({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final store = PomodoroStore();
+    // final store = PomodoroStore();
+    // print(store.tempoTrabalho.toString());
+    final store = Provider.of<PomodoroStore>(context);
 
     return Scaffold(
       body: Column(

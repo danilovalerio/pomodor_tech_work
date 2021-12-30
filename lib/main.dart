@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pomodor_tech_work/pages/pomodoro_page.dart';
+import 'package:pomodor_tech_work/store/pomodoro.store.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +16,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Provider(
+      create: (_) => PomodoroStore(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const Pomodoro(),
       ),
-      home: const Pomodoro(),
     );
   }
 }
