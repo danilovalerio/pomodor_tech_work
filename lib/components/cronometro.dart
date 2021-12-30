@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pomodor_tech_work/components/cronometro_botao.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
+import 'package:pomodor_tech_work/utils/paleta_cores.dart';
 import 'package:provider/provider.dart';
 
 class Cronometro extends StatelessWidget {
@@ -11,11 +12,14 @@ class Cronometro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     store = Provider.of<PomodoroStore>(context);
 
-    return Observer(builder: (_) => Container(
-        color: store!.estaTrabalhando() ? Colors.red : Colors.green,
+    return Observer(
+      builder: (_) => Container(
+        color:
+            store!.estaTrabalhando()
+                ? PaleCores.atividade
+                : PaleCores.descanso,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

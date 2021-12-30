@@ -11,8 +11,6 @@ class Pomodoro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final store = PomodoroStore();
-    // print(store.tempoTrabalho.toString());
     final store = Provider.of<PomodoroStore>(context);
 
     return Scaffold(

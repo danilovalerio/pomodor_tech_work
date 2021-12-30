@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
+import 'package:pomodor_tech_work/utils/paleta_cores.dart';
 
 final store = PomodoroStore();
 
@@ -46,7 +47,7 @@ class EntradaTempo extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
                 padding: EdgeInsets.all(15),
-                primary: store.estaTrabalhando() ? Colors.red : Colors.green,
+                primary: store.estaTrabalhando() ? PaleCores.atividade : PaleCores.descanso,
               ),
             ),
             Text(
@@ -61,7 +62,7 @@ class EntradaTempo extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
                 padding: EdgeInsets.all(15),
-                primary: store.estaTrabalhando() ? Colors.red : Colors.green,
+                primary: store.estaTrabalhando() ? PaleCores.atividade : PaleCores.descanso,
               ),
             ),
           ],
