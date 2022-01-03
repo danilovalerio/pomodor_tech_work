@@ -6,7 +6,6 @@ import 'package:pomodor_tech_work/store/pomodoro.store.dart';
 import 'package:provider/provider.dart';
 
 class Pomodoro extends StatelessWidget {
-
   const Pomodoro({Key? key}) : super(key: key);
 
   @override

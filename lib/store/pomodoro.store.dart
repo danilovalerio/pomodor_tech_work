@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:mobx/mobx.dart';
+import 'package:pomodor_tech_work/utils/player_audio_helper.dart';
 
 part 'pomodoro.store.g.dart';
 
@@ -32,9 +33,13 @@ abstract class _PomodoroStore with Store {
   ///Utilizado para controlar o tempo
   Timer? cronometro;
 
+  ///Iniciliazar o audioHelper
+  AudioHelper player = AudioHelper();
+
   @action
   void iniciar() {
     iniciado = true;
+    player.clique();
     cronometro = Timer.periodic(Duration(milliseconds: 50), (timer) {
       ///O código que estiver aqui dentro será chamada a cada 1 segundo
       if(minutos == 0 && segundos == 0) {
@@ -107,9 +112,11 @@ abstract class _PomodoroStore with Store {
   void _trocarTipoIntervalo() {
     if(estaTrabalhando()) {
       tipoIntervalo = TipoIntervalo.DESCANSO;
+      player.descansar();
       minutos = tempoDescanso;
     } else {
       tipoIntervalo = TipoIntervalo.TABALHO;
+      player.trabalhar();
       minutos = tempoTrabalho;
     }
     segundos = 0;

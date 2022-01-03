@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pomodor_tech_work/components/cronometro_botao.dart';
@@ -13,6 +14,8 @@ class Cronometro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     store = Provider.of<PomodoroStore>(context);
+    final player = AudioCache(prefix: 'assets/audio/');
+    player.loadAll(['iniciatrabalho.mp3','fim_descanso_suave.mp3']);
 
     return Observer(
       builder: (_) => Container(
@@ -25,7 +28,7 @@ class Cronometro extends StatelessWidget {
           children: [
             Text(
                 store!.estaTrabalhando()
-                    ? "Fazer a Atividade"
+                    ? "Hora de Trabalhar"
                     : "Hora de Descansar",
                 style: TextStyle(fontSize: 40, color: Colors.white)),
             SizedBox(height: 20),
