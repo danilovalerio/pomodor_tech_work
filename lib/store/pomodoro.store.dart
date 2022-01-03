@@ -16,16 +16,16 @@ abstract class _PomodoroStore with Store {
   bool iniciado = false;
 
   @observable
-  int minutos = 2;
+  int minutos = 0;
 
   @observable
   int segundos = 0;
 
   @observable
-  int tempoTrabalho = 2;
+  int tempoTrabalho = 25;
 
   @observable
-  int tempoDescanso = 1;
+  int tempoDescanso = 5;
 
   @observable
   TipoIntervalo tipoIntervalo = TipoIntervalo.TABALHO;
@@ -40,7 +40,7 @@ abstract class _PomodoroStore with Store {
   void iniciar() {
     iniciado = true;
     player.clique();
-    cronometro = Timer.periodic(Duration(milliseconds: 50), (timer) {
+    cronometro = Timer.periodic(Duration(seconds: 1), (timer) {
       ///O código que estiver aqui dentro será chamada a cada 1 segundo
       if(minutos == 0 && segundos == 0) {
         ///se zerou trocar o tipo de intervalo
@@ -79,7 +79,10 @@ abstract class _PomodoroStore with Store {
 
   @action
   void decrementarTempoTrabalho() {
-    tempoTrabalho--;
+    if(tempoTrabalho > 0) {
+      tempoTrabalho--;
+    }
+
     if(estaTrabalhando()) {
       reiniciar();
     }
@@ -95,7 +98,10 @@ abstract class _PomodoroStore with Store {
 
   @action
   void decrementarTempoDescanso() {
-    tempoDescanso--;
+    if(tempoDescanso > 0) {
+      tempoDescanso--;
+    }
+
     if(estaDescansando()) {
       reiniciar();
     }
