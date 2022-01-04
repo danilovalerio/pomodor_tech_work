@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:pomodor_tech_work/store/pomodoro.store.dart';
 import 'package:pomodor_tech_work/utils/constants.dart';
 import 'package:pomodor_tech_work/utils/paleta_cores.dart';
-import 'package:provider/provider.dart';
 
 ///Componente responsável pela entrada de tempo de trabalho e de descanso
 class EntradaTempo extends StatelessWidget {
