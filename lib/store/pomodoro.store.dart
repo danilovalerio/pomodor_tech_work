@@ -16,7 +16,7 @@ abstract class _PomodoroStore with Store {
   bool iniciado = false;
 
   @observable
-  int minutos = 0;
+  int minutos = 25;
 
   @observable
   int segundos = 0;

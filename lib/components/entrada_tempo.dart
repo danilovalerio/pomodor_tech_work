@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
+import 'package:pomodor_tech_work/utils/constants.dart';
 import 'package:pomodor_tech_work/utils/paleta_cores.dart';
-
-final store = PomodoroStore();
+import 'package:provider/provider.dart';
 
 ///Componente responsável pela entrada de tempo de trabalho e de descanso
 class EntradaTempo extends StatelessWidget {
@@ -28,11 +29,12 @@ class EntradaTempo extends StatelessWidget {
       children: [
         Text(
           titulo,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 25,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 12,
         ),
         Row(
@@ -40,29 +42,39 @@ class EntradaTempo extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: this.dec,
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_downward,
                 color: Colors.white,
               ),
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
                 padding: EdgeInsets.all(15),
-                primary: store.estaTrabalhando() ? PaleCores.atividade : PaleCores.descanso,
+                primary: (this.titulo.compareTo(labelTrabalho) == 0)
+                    ? PaleCores.atividade
+                    : PaleCores.descanso,
+                elevation: 5,
               ),
             ),
             Text(
               '$valor min',
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             ElevatedButton(
               onPressed: this.inc,
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_upward,
                 color: Colors.white,
               ),
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
                 padding: EdgeInsets.all(15),
-                primary: store.estaTrabalhando() ? PaleCores.atividade : PaleCores.descanso,
+                primary: (this.titulo.compareTo(labelTrabalho) == 0)
+                    ? PaleCores.atividade
+                    : PaleCores.descanso,
+                elevation: 5,
               ),
             ),
           ],
