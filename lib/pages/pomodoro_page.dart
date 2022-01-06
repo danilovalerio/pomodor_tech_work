@@ -4,6 +4,7 @@ import 'package:pomodor_tech_work/components/cronometro.dart';
 import 'package:pomodor_tech_work/components/entrada_tempo.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
 import 'package:pomodor_tech_work/utils/constants.dart';
+import 'package:pomodor_tech_work/utils/reponsive_items.dart';
 import 'package:provider/provider.dart';
 
 class Pomodoro extends StatelessWidget {
@@ -13,7 +14,34 @@ class Pomodoro extends StatelessWidget {
   Widget build(BuildContext context) {
     final store = Provider.of<PomodoroStore>(context);
 
+    ///AppBar personalizada
+    final myAppBar = AppBar(
+      title: Text(
+        'Pomodoro Tech',
+        style:
+        TextStyle(fontSize: fontSizeReponsive(context: context, size: 20)),
+      ),
+      centerTitle: true,
+      actions: <Widget>[
+        // if (isLandscape)
+          IconButton(
+            onPressed: () {
+              // setState(() {
+              //   _showChart = !_showChart;
+              // });
+            },
+            icon: Icon(true ? Icons.list : Icons.pie_chart),
+          ),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.add),
+        ),
+      ],
+      backgroundColor: Theme.of(context).primaryColor,
+    );
+
     return Scaffold(
+      appBar: myAppBar,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

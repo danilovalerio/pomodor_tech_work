@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pomodor_tech_work/pages/pomodoro_page.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
+import 'package:pomodor_tech_work/ui_prefs/theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -21,9 +22,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Pomodoro Tech Work',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: myTheme(context),
         home: const Pomodoro(),
       ),
     );
