@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:pomodor_tech_work/components/cronometro.dart';
 import 'package:pomodor_tech_work/components/entrada_tempo.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
@@ -17,13 +18,13 @@ class Pomodoro extends StatelessWidget {
     ///AppBar personalizada
     final myAppBar = AppBar(
       title: Text(
-        'Pomodoro Tech',
+        titleApp,
         style:
-        TextStyle(fontSize: fontSizeReponsive(context: context, size: 20)),
+            TextStyle(fontSize: fontSizeReponsive(context: context, size: 20)),
       ),
       centerTitle: true,
       actions: <Widget>[
-        // if (isLandscape)
+        if (!true)
           IconButton(
             onPressed: () {
               // setState(() {
@@ -34,8 +35,12 @@ class Pomodoro extends StatelessWidget {
           ),
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.add),
+          icon: Icon(LineIcons.readme),
         ),
+        // IconButton(
+        //   onPressed: () {},
+        //   icon: Icon(LineIcons.plusCircle),
+        // ),
       ],
       backgroundColor: Theme.of(context).primaryColor,
     );
