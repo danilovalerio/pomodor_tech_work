@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:pomodor_tech_work/components/cronometro.dart';
 import 'package:pomodor_tech_work/components/entrada_tempo.dart';
+import 'package:pomodor_tech_work/pages/description_method_page.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
 import 'package:pomodor_tech_work/utils/constants.dart';
 import 'package:pomodor_tech_work/utils/reponsive_items.dart';
@@ -34,7 +35,11 @@ class Pomodoro extends StatelessWidget {
             icon: Icon(true ? Icons.list : Icons.pie_chart),
           ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => DescriptionMethod()));
+
+          },
           icon: Icon(LineIcons.readme),
         ),
         // IconButton(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pomodor_tech_work/pages/description_method_page.dart';
 import 'package:pomodor_tech_work/pages/pomodoro_page.dart';
 import 'package:pomodor_tech_work/store/pomodoro.store.dart';
 import 'package:pomodor_tech_work/ui_prefs/theme.dart';
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Pomodoro Tech Work',
         theme: myTheme(context),
-        home: const Pomodoro(),
+        // home: const Pomodoro(),
+        home: const DescriptionMethod(),
       ),
     );
   }
