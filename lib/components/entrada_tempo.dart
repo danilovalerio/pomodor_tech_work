@@ -39,9 +39,12 @@ class EntradaTempo extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: this.dec,
-              child: const Icon(
-                Icons.arrow_downward,
-                color: Colors.white,
+              child: Semantics(
+                label: 'diminuir tempo de ${this.titulo}',
+                child: const Icon(
+                  Icons.arrow_downward,
+                  color: Colors.white,
+                ),
               ),
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
@@ -52,18 +55,24 @@ class EntradaTempo extends StatelessWidget {
                 elevation: 5,
               ),
             ),
-            Text(
-              '$valor min',
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            Semantics(
+              liveRegion: true,
+              child: Text(
+                '$valor min',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             ElevatedButton(
               onPressed: this.inc,
-              child: const Icon(
-                Icons.arrow_upward,
-                color: Colors.white,
+              child: Semantics(
+                label: 'aumentar tempo de ${this.titulo}',
+                child: const Icon(
+                  Icons.arrow_upward,
+                  color: Colors.white,
+                ),
               ),
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),

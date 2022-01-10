@@ -18,10 +18,13 @@ class Pomodoro extends StatelessWidget {
 
     ///AppBar personalizada
     final myAppBar = AppBar(
-      title: Text(
-        titleApp,
-        style:
-            TextStyle(fontSize: fontSizeReponsive(context: context, size: 20)),
+      title: Semantics(
+        header: true,
+        child: Text(
+          titleApp,
+          style:
+              TextStyle(fontSize: fontSizeReponsive(context: context, size: 20)),
+        ),
       ),
       centerTitle: true,
       actions: <Widget>[
@@ -34,13 +37,16 @@ class Pomodoro extends StatelessWidget {
             },
             icon: Icon(true ? Icons.list : Icons.pie_chart),
           ),
-        IconButton(
-          onPressed: () {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => DescriptionMethod()));
+        Semantics(
+          label: 'Saber mais sobre técnica pomodoro',
+          child: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => DescriptionMethod()));
 
-          },
-          icon: Icon(LineIcons.readme),
+            },
+            icon: Icon(LineIcons.readme),
+          ),
         ),
         // IconButton(
         //   onPressed: () {},

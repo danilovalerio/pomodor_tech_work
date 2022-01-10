@@ -26,16 +26,20 @@ class Cronometro extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-                store!.estaTrabalhando()
-                    ? "Hora de Trabalhar"
-                    : "Hora de Descansar",
-                style: TextStyle(fontSize: 40, color: Colors.white)),
+            Semantics(
+              label: 'Cronometro',
+              child: Text(
+                  store!.estaTrabalhando()
+                      ? "Hora de Trabalhar"
+                      : "Hora de Descansar",
+                  style: TextStyle(fontSize: 40, color: Colors.white)),
+            ),
             SizedBox(height: 20),
             Text(
                 "${store?.minutos.toString().padLeft(2, '0')}:${store?.segundos.toString().padLeft(2, '0')}",
                 // "${2.toString().padLeft(2, '0')}:${0.toString().padLeft(2, '0')}",
-                style: TextStyle(fontSize: 120, color: Colors.white)),
+                style: TextStyle(fontSize: 120, color: Colors.white),
+            semanticsLabel: "${store?.minutos.toString().padLeft(2, '0')}:${store?.segundos.toString().padLeft(2, '0')} minutos",),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

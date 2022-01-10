@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       create: (_) => PomodoroStore(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        showSemanticsDebugger: false,
         title: 'Pomodoro Tech Work',
         theme: myTheme(context),
         home: const Pomodoro(),
