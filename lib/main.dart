@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Pomodoro Tech Work',
         theme: myTheme(context),
-        // home: const Pomodoro(),
-        home: const DescriptionMethod(),
+        home: const Pomodoro(),
+        // home: const DescriptionMethod(),
       ),
     );
   }
